@@ -1,0 +1,25 @@
+// Deux reactions enzymatiques a la suite: s -> i -> p.
+
+taille = 50;		// v�sicule sph�rique de 50 x 10 nm de diametre.
+
+molecule	E1, E1s;	// enzyme1 et complexe enzyme1-substrat.
+molecule	s, i;		// substrat et produit intermediaire.
+molecule	E2, E2i;	// enzyme2 et complexe enzyme2-intermediaire.
+molecule	p;			// produit final.
+
+vitesse (E1) = 0.5;		// les enzymes diffusent a demi-vitesse maximum.
+vitesse (E1s) = 0.5;
+vitesse (E2) = 0.5;
+vitesse (E2i) = 0.5;
+
+diametre (s) = 0.2;		// les substat et produit on un volume.
+diametre (i) = 0.2;		// 125 (5^3) fois plus faible que les enzymes.
+diametre (p) = 0.2;
+
+
+// premiere reaction E1 : s -> i
+
+E1 + s -> E1s [0.7];
+
+pop (E1) = 10;
+pop (s) = 10;
